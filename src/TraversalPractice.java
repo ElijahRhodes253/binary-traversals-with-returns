@@ -74,7 +74,14 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if(node == null) return 0;
+        int leftNode = sumLeafNodes(node.left);
+        int rightNode = sumLeafNodes(node.right);
+        if(leftNode == 0 && rightNode == 0)
+        {
+            return node.data;
+        }
+        return leftNode + rightNode;
     }
 
     /**
